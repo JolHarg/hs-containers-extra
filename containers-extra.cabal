@@ -35,9 +35,12 @@ library
     -Wno-missing-import-lists -Wno-missing-export-lists
     -Wno-implicit-prelude -Wno-missing-safe-haskell-mode
     -Wno-all-missed-specialisations -Wno-missed-specialisations
+    -Wno-missing-role-annotations -Wno-missing-kind-signatures
+    -Wno-missing-poly-kind-signatures -Wno-unrecognised-warning-flags
+    -Wno-missed-specialisations
 
 -- These three are not supported in ghcjs from reflex
--- -Wno-missing-kind-signatures
+-- -Wno-missing-kind-signatures -Wno-missing-poly-kind-signatures
 --                      -Wno-missing-local-signatures
 
 
@@ -59,9 +62,12 @@ test-suite containers-extra-test
     -Wno-missing-export-lists -Wno-implicit-prelude
     -Wno-missing-safe-haskell-mode -Wno-prepositive-qualified-module
     -Wno-all-missed-specialisations -Wno-missed-specialisations
+    -Wno-missing-role-annotations -Wno-missing-kind-signatures
+    -Wno-missing-poly-kind-signatures -Wno-unrecognised-warning-flags
+    -Wno-missed-specialisations
 
   -- These three are not supported in ghcjs from reflex
-  -- -Wno-missing-kind-signatures
+  -- -Wno-missing-kind-signatures -Wno-missing-poly-kind-signatures
   --                      -Wno-missing-local-signatures
   build-depends:
     , base   >=4.12 && <5
