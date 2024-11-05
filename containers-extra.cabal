@@ -54,6 +54,7 @@ test-suite containers-extra-test
     NoGeneralisedNewtypeDeriving
     OverloadedStrings
     UnicodeSyntax
+
   main-is:            Spec.hs
   ghc-options:
     -Wall -Werror -threaded -rtsopts -with-rtsopts=-N -Weverything
@@ -64,12 +65,14 @@ test-suite containers-extra-test
     -Wno-missing-role-annotations -Wno-missing-kind-signatures
     -Wno-missing-poly-kind-signatures -Wno-unrecognised-warning-flags
     -Wno-missed-specialisations
+
   -- These three are not supported in ghcjs from reflex
   -- -Wno-missing-kind-signatures -Wno-missing-poly-kind-signatures
   --                      -Wno-missing-local-signatures
   build-depends:
     , base   >=4.12 && <5
     , hspec
+
   -- , containers-extra
   -- , hspec-core
   -- , hspec-expectations
