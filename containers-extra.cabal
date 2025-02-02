@@ -17,9 +17,9 @@ library
 
   -- other-extensions:
   build-depends:
-    , base        >=4.12 && <5
-    , containers
-    , text
+    , base        >=4.12   && <4.22
+    , containers  ^>=0.7
+    , text        ^>=2.1.2
 
   hs-source-dirs:     lib
   default-language:   Haskell2010
@@ -70,13 +70,13 @@ test-suite containers-extra-test
   -- -Wno-missing-kind-signatures -Wno-missing-poly-kind-signatures
   --                      -Wno-missing-local-signatures
   build-depends:
-    , base   >=4.12 && <5
-    , hspec
+    , base   >=4.12     && <4.22
+    , hspec  ^>=2.11.10
 
   -- , containers-extra
-  -- , hspec-core
-  -- , hspec-expectations
+  -- , hspec-core ^>=2.11.10
+  -- , hspec-expectations ^>=0.8.4
   -- , HUnit
-  -- , QuickCheck
+  -- , QuickCheck ^>=2.15.0.1
   build-tool-depends: hspec-discover:hspec-discover
   other-modules:      MainSpec
