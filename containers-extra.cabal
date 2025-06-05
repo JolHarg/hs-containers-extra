@@ -1,26 +1,22 @@
-cabal-version:      3.0
+cabal-version:      3.12
 name:               containers-extra
-version:            0.1.0.0
+version:            0.2.0.0
 license:            AGPL-3.0-only
 author:             Dan Dart
 maintainer:         git@dandart.co.uk
-
 -- copyright:
 -- category:
 build-type:         Simple
 extra-source-files:
   CHANGELOG.md
   README.md
-
 library
   exposed-modules:    Data.ToMap.Class
-
   -- other-extensions:
   build-depends:
-    , base        >=4.12   && <4.22
-    , containers  ^>=0.7
+    , base        ^>=4.21.0.0
+    , containers  ^>=0.8
     , text        ^>=2.1.2
-
   hs-source-dirs:     lib
   default-language:   Haskell2010
   default-extensions:
@@ -29,7 +25,6 @@ library
     NoGeneralisedNewtypeDeriving
     OverloadedStrings
     UnicodeSyntax
-
   ghc-options:
     -Wall -Werror -Weverything -Wno-unsafe -Wno-safe
     -Wno-missing-import-lists -Wno-missing-export-lists
@@ -38,13 +33,12 @@ library
     -Wno-missing-role-annotations -Wno-missing-kind-signatures
     -Wno-missing-poly-kind-signatures -Wno-unrecognised-warning-flags
     -Wno-missed-specialisations
-
 -- These three are not supported in ghcjs from reflex
 -- -Wno-missing-kind-signatures -Wno-missing-poly-kind-signatures
 --                      -Wno-missing-local-signatures
-
-
 test-suite containers-extra-test
+  if arch(javascript) || arch(wasm32)
+    buildable: False
   hs-source-dirs:     test
   type:               exitcode-stdio-1.0
   default-language:   Haskell2010
@@ -54,10 +48,11 @@ test-suite containers-extra-test
     NoGeneralisedNewtypeDeriving
     OverloadedStrings
     UnicodeSyntax
-
   main-is:            Spec.hs
+  if !arch(wasm32)
+    ghc-options: -threaded -rtsopts -with-rtsopts=-N 
   ghc-options:
-    -Wall -Werror -threaded -rtsopts -with-rtsopts=-N -Weverything
+    -Wall -Werror -Weverything
     -Wno-unsafe -Wno-safe -Wno-missing-import-lists
     -Wno-missing-export-lists -Wno-implicit-prelude
     -Wno-missing-safe-haskell-mode -Wno-prepositive-qualified-module
@@ -65,14 +60,12 @@ test-suite containers-extra-test
     -Wno-missing-role-annotations -Wno-missing-kind-signatures
     -Wno-missing-poly-kind-signatures -Wno-unrecognised-warning-flags
     -Wno-missed-specialisations
-
   -- These three are not supported in ghcjs from reflex
   -- -Wno-missing-kind-signatures -Wno-missing-poly-kind-signatures
   --                      -Wno-missing-local-signatures
   build-depends:
-    , base   >=4.12     && <4.22
+    , base   ^>=4.21.0.0
     , hspec  ^>=2.11.10
-
   -- , containers-extra
   -- , hspec-core ^>=2.11.10
   -- , hspec-expectations ^>=0.8.4
