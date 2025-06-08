@@ -32,10 +32,9 @@ library
     -Wno-all-missed-specialisations -Wno-missed-specialisations
     -Wno-missing-role-annotations -Wno-missing-kind-signatures
     -Wno-missing-poly-kind-signatures -Wno-unrecognised-warning-flags
-    -Wno-missed-specialisations
--- These three are not supported in ghcjs from reflex
--- -Wno-missing-kind-signatures -Wno-missing-poly-kind-signatures
---                      -Wno-missing-local-signatures
+    -Wno-missed-specialisations -Wno-missing-kind-signatures
+    -Wno-missing-poly-kind-signatures -Wno-missing-local-signatures
+
 test-suite containers-extra-test
   if arch(javascript) || arch(wasm32)
     buildable: False
@@ -59,10 +58,8 @@ test-suite containers-extra-test
     -Wno-all-missed-specialisations -Wno-missed-specialisations
     -Wno-missing-role-annotations -Wno-missing-kind-signatures
     -Wno-missing-poly-kind-signatures -Wno-unrecognised-warning-flags
-    -Wno-missed-specialisations
-  -- These three are not supported in ghcjs from reflex
-  -- -Wno-missing-kind-signatures -Wno-missing-poly-kind-signatures
-  --                      -Wno-missing-local-signatures
+    -Wno-missed-specialisations -Wno-missing-kind-signatures
+    -Wno-missing-poly-kind-signatures -Wno-missing-local-signatures
   build-depends:
     , base   ^>=4.21.0.0
     , hspec  ^>=2.11.10
