@@ -5,3 +5,6 @@ import Data.Text
 
 class ToMap a where
     toMap ∷ [a] → Map Text (Map Text Text)
+
+class ToDropdownMap id' a where
+    toDropdownMap :: [a] -> Map (Maybe id') Text
