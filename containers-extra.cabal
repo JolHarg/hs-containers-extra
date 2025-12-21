@@ -17,7 +17,7 @@ library
 
   -- other-extensions:
   build-depends:
-    , base        >=4.21 && <4.23
+    , base        ^>=4.22
     , containers  ^>=0.8
     , text        ^>=2.1.2
 
@@ -67,7 +67,7 @@ test-suite containers-extra-test
     -Wno-missing-local-signatures
 
   build-depends:
-    , base   >=4.21 && <4.23
+    , base   ^>=4.22
     , hspec  ^>=2.11.15
 
   -- , containers-extra
